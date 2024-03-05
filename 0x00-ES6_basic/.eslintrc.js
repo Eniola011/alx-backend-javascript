@@ -1,21 +1,44 @@
 module.exports = {
   env: {
-    browser: true,
-    node: true,
-    es6: true
+    browser: false,
+    es6: true,
+    jest: true,
   },
   extends: [
-    "eslint:recommended",
-    "plugin:jest/recommended"
+    'airbnb-base',
+    'plugin:jest/all',
   ],
-  parserOptions: {
-    ecmaVersion: 12,
-    sourceType: "module"
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
   },
-  plugins: [
-    "jest"
-  ],
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
+  plugins: ['jest'],
   rules: {
-    // Add your ESLint rules here
-  }
+    'no-console': 'off',
+    'no-shadow': 'off',
+    'import/extensions': ['error', 'ignorePackages', {
+      js: 'never',
+    }],
+    'no-restricted-syntax': [
+      'error',
+      'LabeledStatement',
+      'WithStatement',
+    ],
+  },
+  overrides: [
+    {
+      files: ['9-getFullBudget.js'],
+      rules: {
+        'import/extensions': ['error', 'ignorePackages', {
+          js: 'always',
+          mjs: 'always',
+          jsx: 'always',
+        }],
+      },
+    },
+  ],
 };
