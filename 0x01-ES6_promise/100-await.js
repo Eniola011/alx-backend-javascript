@@ -1,5 +1,5 @@
 // await and async
-import { uploadPhoto, createUser } from './utils.js';
+import { uploadPhoto, createUser } from './utils';
 
 const asyncUploadUser = async () => {
   let picture;
@@ -13,6 +13,6 @@ const asyncUploadUser = async () => {
     user = null;
   }
   return ({ picture, user });
-}
+};
 
 export default asyncUploadUser;
